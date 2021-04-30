@@ -1,0 +1,122 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login system with nodejs and mysql database</title>
+    <link rel="stylesheet" href="assets/styling.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <section class="box">
+        
+        <div class="form">
+            <h2>User Login</h2>
+            <form action="upload.html" method="POST">
+                <input type="email" name="username" class="input-text" placeholder="Username" />
+                <input type="password" name="password" class="input-text" placeholder="Password" />
+                <input type="submit" class="btn" value="LOGIN">
+            </form>
+        </div>
+    </section>
+</body>
+</html>-->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/styling.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" type="text/css" href="./assets/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/c533bd786b.js"></script>
+
+
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <style>
+    body {
+      background: linear-gradient(-60deg, rgb(71, 250, 196), rgb(197, 238, 236));    
+    }
+  </style>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="icon"><i class="fas fa-university"></i></div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="register">Register</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<body>
+  <section class="signin">
+
+    <img src="assets/bank.jpg">
+
+    <div class="content">
+      <h1>ABC Bank</h1>
+
+      <form class="form-signin" action="/" method="POST">
+        <h2 class="form-signin-heading">Please sign in</h2>
+
+        <h4 class="form-signin-email"></h4>
+        <input name="username" type="username" id="inputEmail" class="input-text" placeholder="Username" required
+          autofocus>
+
+        <h4 class="form-signin-pass"></h4>
+        <div class="passBox">
+          <input name="password" type="password" id="pwd" class="input-text" 
+          placeholder="Password" required>
+          <span class="passText"></span>
+        </div>
+        
+        <input type="submit" class="btn btn-lg btn-primary btn-block" value="LOGIN" />
+      </form>
+
+    </div>
+
+  </section>
+
+  <script>
+    const password = document.getElementById("pwd");
+    password.addEventListener("keyup", () => {
+        const passBox = document.querySelector('.passBox');
+        const passText = document.querySelector('.passText');
+        const passPattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+
+        if (password.value.match(passPattern)) {
+            passBox.classList.add('valid');
+            passBox.classList.remove('invalid');
+            passText.innerHTML = "Your Password in Valid";
+        } else {
+            passBox.classList.add('invalid');
+            passBox.classList.remove('valid');
+            passText.innerHTML = "Your password must be at least 6 characters as well as contain at least one uppercase, one lowercase, and one number.";
+        }
+    });
+    
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>UploaderApp</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="assets/styling.css"> -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/c533bd786b.js"></script>
+
+    <!-- <script src="app.js"></script> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            
+        }
+
+        html,
+        body {
+            display: grid;
+            height: 90%;
+            place-items: center;
+            text-align: center;
+            background: linear-gradient(-60deg, rgb(71, 250, 196), rgb(197, 238, 236)); 
+        }
+
+        .container {
+            margin-top: 100px;
+            height: 350px;
+            width: 630px;
+           margin-left: 100px;
+        }
+
+        .container .wrapper {
+            height: 300px;
+            width: 530px;
+            border-radius: 10px;
+            background: #fff;
+            border: 2px solid #c2cdda;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon {
+            font-size: 100px;
+            color: #1179da;
+        }
+
+        .wrapper .file-name {
+            position: absolute;
+            bottom: 32%;
+            background-color: #1179da;
+            color: white;
+            width: 530px;
+            padding: 8px 0px;
+            font-size: 18px;
+            border-end-end-radius: 10px;
+            border-end-start-radius: 10px;
+        }
+
+        .container #custom-btn {
+            margin-top: 30px;
+            width: 240px;
+            height: 50px;
+            border-radius: 5px;
+            color: white;
+            font-size: 18px;
+            background-color: #1179da;
+            border: 1px solid rgb(145, 144, 144);
+            /* transition: all .5s ease; */
+        }
+
+        #custom-btn:hover {
+            color: #000066;
+            background-color: #fff;
+            font-weight: bold;
+        }
+
+        .container #upload-btn {
+            margin-top: 30px;
+            margin-left: 50px;
+            width: 240px;
+            height: 50px;
+            display: block;
+            border-radius: 5px;
+            color: white;
+            font-size: 18px;
+            background-color: #1179da;
+            border: 1px solid rgb(145, 144, 144);
+        }
+
+        #upload-btn:hover {
+            color: #000066;
+            background-color: #fff;
+            font-weight: bold;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="content">
+                <div class="icon"><i class="fas fa-upload"></i></div>
+            </div>
+            <div class="file-name" id="custom-text">No file chosen</div>
+        </div>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input id="default-btn" class="file-input" name="user_file" type="file" style="visibility: hidden;">
+            <table>
+                <tr>
+                    <td><button onclick="defaultBtnActive()" id="custom-btn" type="button">Choose a file</button></td>
+                    <td><input type="submit" name="btn_upload_user_file" id="upload-btn" value="Upload" /></td>
+                    
+                </tr>
+            </table>
+        </form>
+       
+    </div>
+
+    <script>
+        const defaultBtn = document.querySelector("#default-btn");
+        const customBtn = document.querySelector("#custom-btn");
+        function defaultBtnActive() {
+            defaultBtn.click();
+        }
+        defaultBtn.addEventListener("change", function () {
+            const fileSelected = event.target.files[0];
+            const displayFileName = document.getElementById("custom-text");
+
+            if (fileSelected) {
+                this.fileName = fileSelected.name;
+                displayFileName.textContent = this.fileName;
+            }
+        })
+       
+    </script>
+
+</body>
+
+</html>
